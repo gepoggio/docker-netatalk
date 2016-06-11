@@ -73,6 +73,19 @@ path = /media/share
 valid users = %USER%
 ```
 
+#### Example 2
+
+In this case, users are taken from host:
+
+docker run --detach \
+    --publish 548:548 \
+    -v /srv/shares/timemachine:/media/share \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /etc/shadow:/etc/shadow:ro \
+    -e AFP_USER=gepoggio \
+    --restart=unless-stopped \
+    gepoggio/docker-netatalk:latest
+
 ### Service discovery
 
 This image includes an avahi daemon which is off by default. Enable by setting the environment variable `AVAHI=1` with `docker run -e AVAHI=1 ...`
