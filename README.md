@@ -75,8 +75,9 @@ valid users = %USER%
 
 #### Example 2
 
-In this case, users are taken from host:
+In this case, users/passwords are taken from host:
 
+```bash
 docker run --detach \
     --publish 548:548 \
     -v /srv/shares/timemachine:/media/share \
@@ -85,6 +86,7 @@ docker run --detach \
     -e AFP_USER=gepoggio \
     --restart=unless-stopped \
     gepoggio/docker-netatalk:latest
+```
 
 ### Service discovery
 
