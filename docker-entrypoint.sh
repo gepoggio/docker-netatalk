@@ -27,7 +27,7 @@ cat /etc/afp.conf
 echo ---end---afp.conf--
 
 mkdir -p /var/run/dbus
-rm -f /var/run/dbus/pid
+rm -f /var/run/dbus/pid /var/run/lock/netatalk
 dbus-daemon --system
 if [ "${AVAHI}" == "1" ]; then
     sed -i '/rlimit-nproc/d' /etc/avahi/avahi-daemon.conf
